@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+  <!-- AUTOR DIEGO PALENCIA MARTINEZ -->
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Juego de la Vida - Diego Palencia Martinez</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="icon" type="image/png" href="/media/favicon.png">
+
+</head>
+<body>
+  <header>
+    <h1>JUEGO DE LA VIDA</h1>
+    <h3>por Diego Palencia Martínez</h3>
+  </header>
+  <!-- PANEL PARA CONFIGURACION(FPS/TAMAÑO) -->
+  <section id="config-panel" class="panel">
+    <label for="fps">FPS (1-60):</label>
+    <input type="number" id="fps" min="1" max="60" value="10">
+
+    <label for="size">Tamaño (10-100):</label>
+    <input type="number" id="size" min="10" max="100" value="40">
+
+    <button id="apply">Aplicar cambios</button>
+  </section>
+
+  <div>
+    <label for="pattern">Patrón:</label>
+    <select id="pattern">
+        <option value="none">Ninguno</option>
+        <option value="glider">Glider</option>
+        <option value="blinker">Blinker</option>
+        <option value="boat">Boat</option>
+        <option value="smallExploder">Pequeña explosion</option>
+        <option value="pulsar">Pulsar</option>
+        <option value="gosperGliderGun">Lanzador de Gliders</option>
+        <option value="toad">Toad</option>
+        <option value="beacon">Beacon</option>
+        <option value="pentadecathlon">Penta Decathlon</option>
+    </select>
+</div>
+
+<h4>(LOS PATRONES SE ACTIVAN PULSANDO CLICK DERECHO)</h4>
+
+  <!-- CUERPO PRINCIPAL -->
+  <main>
+    <!-- CANVAS(y su envoltura para ajustar el tamaño de las celdas) -->
+    <div class="canvas-wrap">
+        <!--esto es el canvas como tal-->
+      <canvas id="world"></canvas>
+    </div>
+
+    <!-- PANEL PARA LA SALIDA -->
+    <section id="status-box" class="panel status">
+      <p id="info">Posición: -, Tiempo vivo: -</p>
+    </section>
+  </main>
+  <!-- PANEL DE CONTROL (empezar parar etc )-->
+  <section id="control-panel" class="panel">
+    <button id="start">Comenzar</button>
+    <button id="stop">Detener</button>
+    <button id="clear">Limpiar</button>
+  </section>
+
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
