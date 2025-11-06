@@ -96,7 +96,7 @@ export class World {
 
     //Sonido de celula al crearse
     playCellSound() {
-        const audio = new Audio("/media/cell.wav");
+        const audio = new Audio("media/cell.wav");
         audio.volume = 0.005;
         audio.play();
     }
