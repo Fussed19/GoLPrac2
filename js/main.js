@@ -2,7 +2,7 @@ import { World } from "./world.js";
 
 //HECHO POR DIEGO PALENCIA MARTINEZ
 
-//De aqui el audio https://freesound.org/people/IykqiC0/sounds/180072 que he recortado
+//De aqui el audio https://freesound.org/people/Mseq/sounds/332753 
 //El favicon es un emoji de dominio publico.
 
 const patterns = { //Algunos de aqui https://es.wikipedia.org/wiki/Juego_de_la_vida
