@@ -41,7 +41,6 @@ export class World {
 
                 //reglas de Conway
                 if(!cell.alive && cell.adjCells === 3) {
-                    this.playCellSound();
                     newCell.alive = true; 
                     newCell.timeAlive = 0;
                 }
@@ -92,13 +91,6 @@ export class World {
 
         return counter;
 
-    }
-
-    //Sonido de celula al crearse
-    playCellSound() {
-        const audio = new Audio("media/cell.wav");
-        audio.volume = 0.005;
-        audio.play();
     }
 
 }

@@ -78,6 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let hover = null;
 
+    let music;
+
     //BOTONES E INPUTS
     const startButton = document.getElementById("start");
     const stopButton = document.getElementById("stop");
@@ -192,6 +194,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+    //Musica de fondo
+    function playSound() {
+        if(!music) {
+            music = new Audio("media/music.wav");
+            music.volume = 0.1;
+            music.loop = true;
+            
+        }
+        music.play();
+    }
+
+    function stopSound() {
+        if(music) {
+            music.pause();
+            music.currentTime = 0;
+        }
+    }
     //CLICK EN UNA CELDA
     //cambio de estado de la celda y dibujo
     canvas.addEventListener("click", (e) => {
@@ -205,7 +224,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const cell = world.matrix[i][j];
         cell.alive = !cell.alive;
-        if(cell.alive) world.playCellSound();
         draw();
     });    
 
@@ -240,7 +258,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 if(ni >= 0 && ni < n && nj >= 0 && nj < n) {
                     world.matrix[ni][nj].alive = true;
                     world.matrix[ni][nj].timeAlive = 0;
-                    world.playCellSound();
                 }
             });
 
@@ -253,6 +270,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if(!timer) {
             //No se puede cambiar parametros mientras esta en marcha
             disableControls(true);
+            playSound();
             //funcion del timer
             timer = setInterval(() => {
                 world.updateMatrix();
@@ -274,6 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             disableControls(false);
         }
+        stopSound();
     });
 
     //BOTON CLEAR
